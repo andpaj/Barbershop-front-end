@@ -1,29 +1,52 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Router from 'vue-router'
+import Home from '../components/Home'
+import About from '../components/About'
+import Services from '../components/Services'
+import Pricelist from '../components/Pricelist'
+import Contacts from '../components/Contacts'
+import Reservation from '../components/Reservation'
+import Test from '../components/Test'
 
-Vue.use(VueRouter)
+Vue.use(Router)
 
-const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
-
-const router = new VueRouter({
+export default new Router({
   mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+  routes: [
+    {
+      path: '/',
+      component: Home,
+      name: 'home'
+    },
+    {
+      path: '/about',
+      component: About,
+      name: 'about'
+    },
+    {
+      path: '/services',
+      component: Services,
+      name: 'services'
+    },
+    {
+      path: '/pricelist',
+      component: Pricelist,
+      name: 'pricelist'
+    },
+    {
+      path: '/contacts',
+      component: Contacts,
+      name: 'contacts'
+    },
+    {
+      path: '/reservation',
+      component: Reservation,
+      name: 'reservation'
+    },
+    {
+      path: '/test',
+      component: Test,
+      name: 'test'
+    }
+  ]
 })
-
-export default router
