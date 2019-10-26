@@ -42,4 +42,6 @@ export default {
   .heading{
     padding-bottom: 80px;
   }
+
+
 </style>
