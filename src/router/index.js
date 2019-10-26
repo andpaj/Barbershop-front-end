@@ -6,6 +6,8 @@ import Services from '../components/Services'
 import Pricelist from '../components/Pricelist'
 import Contacts from '../components/Contacts'
 import Reservation from '../components/Reservation'
+import AdminPage from '../components/AdminPage'
+import AddService from '../components/AddService'
 import Test from '../components/Test'
 
 Vue.use(Router)
@@ -47,6 +49,16 @@ export default new Router({
       path: '/test',
       component: Test,
       name: 'test'
+    },
+    {
+      path: '/admin',
+      component: AdminPage,
+      name: 'admin'
+    },
+    {
+      path: '/add-service',
+      component: AddService,
+      name: 'add-service'
     }
   ]
 })
