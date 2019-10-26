@@ -39,9 +39,6 @@
       services:[{name:"Cut", price:20 + " EUR", duration: "30" + " min"},{name:"Shave", price:30 + " EUR", duration: "30" + " min"}],
       service: {name: "", price: "", duration:""}
     }
-
-
-
   },
 
 
