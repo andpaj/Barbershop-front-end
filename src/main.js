@@ -7,6 +7,9 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VCalendar from 'v-calendar';
+import Vuex from 'vuex';
+
+Vue.use(Vuex);
 
 // Use v-calendar & v-date-picker components
 Vue.use(VCalendar);
@@ -14,6 +17,7 @@ Vue.use(VCalendar);
 Vue.use(BootstrapVue) 
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
+axios.defaults.baseURL = 'http://localhost:9000'
 
 new Vue({
   router,

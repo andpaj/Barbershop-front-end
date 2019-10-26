@@ -11,7 +11,6 @@
             <b-nav-item :to="{ name: 'services' }">Services</b-nav-item>
             <b-nav-item :to="{ name: 'pricelist' }">Pricelist</b-nav-item>
             <b-nav-item :to="{ name: 'contacts' }">Contacts</b-nav-item>
-            <b-nav-item :to="{ name: 'test' }">Test</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
