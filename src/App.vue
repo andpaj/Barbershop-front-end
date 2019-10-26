@@ -39,8 +39,4 @@ html, body {
   color: #2c3e50;
 }
 
-#nav {
-  padding-bottom: 30px;
-}
-
 </style>
