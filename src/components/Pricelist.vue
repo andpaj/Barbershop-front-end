@@ -19,7 +19,7 @@
                     <i class="fas fa-caret-left"></i>
                 </span>
 
-                <em class="service-name text--sans">{{service[0]}} - {{service[1]}} </em>
+                <em class="service-name text--sans">{{service[0]}} - {{service[1]}} - {{service[2]}} </em>
               </b-btn>
             </b-card-header>
 
@@ -38,8 +38,8 @@
     data() {
       return {
 
-        services: [["Masinlõikus", "15EUR"],["Juukselõikus kääridega", "20EUR"],["Habeme kujundamine\n" +
-        "(trimmer + pardel)", "25EUR"], ["Habeme kujundamine", "30EUR"]],
+        services: [["Masinlõikus", "15EUR", "30min"],["Juukselõikus kääridega", "20EUR", "30min"],["Habeme kujundamine\n" +
+        "(trimmer + pardel)", "25EUR", "30min"], ["Habeme kujundamine", "30EUR", "30min"]],
       }
     }
   }
