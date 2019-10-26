@@ -19,6 +19,7 @@
 <style scoped>
     h1, h2 {
         font-weight: normal;
+        color: aliceblue;
     }
     ul {
         list-style-type: none;
@@ -28,5 +29,15 @@
         display: inline-block;
         margin: 0 10px;
     }
+
+     .hello {
+        position: fixed;
+        background-image: url('../assets/reservation-bg.jpg');
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
 
 </style>
