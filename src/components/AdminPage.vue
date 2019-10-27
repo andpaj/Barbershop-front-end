@@ -17,49 +17,23 @@ export default {
     name: 'admin',
     data () {
         return {
+          registration_list: []
 
-          registration_list: [
-            { date: "05.09", time: "13:21", service: 'cut', first_name: 'Dickerson', last_name: 'Macdonald', email: "adsad@gmial.com", phone: 434213123 },
-            { date: "05.09", time: "13:21", service: 'cut', first_name: 'Dickerson', last_name: 'Macdonald', email: "adsad@gmial.com", phone: 434213123 },
-            { date: "05.09", time: "13:21", service: 'cut', first_name: 'Dickerson', last_name: 'Macdonald', email: "adsad@gmial.com", phone: 434213123 },
-            { date: "05.09", time: "13:21", service: 'cut', first_name: 'Dickerson', last_name: 'Macdonald', email: "adsad@gmial.com", phone: 434213123 }
-          ]}
-
-
-
-
-
+        }
+    },    
+    methods: {
+        loadReserv() {
+          this.axios.get('reservation/get').then((response) => {
+            console.log(response.data)
+            this.$data.registration_list = response.data;
+        })
+      }
+    },
+    mounted() {
+        this.loadReserv();
     }
 }
 
-/**,
- methods: {
-
-    //Тут идет запрос в базу и получение данных и запись в массив
-    getPersons: function () {
-      axios.get('/api/curators')
-              .then((response) => {
-              })
-              .catch((error) => {
-
-              })
-    }
-  },
-
- created () {
-
-    this.services = this.$store.getters.getCurators
-    this.$store.dispatch('fetchCurators')
-            .then((data) => {
-              this.services = data
-            })
-            .catch(err => {
-
-            })
-  }
-
- }
- */
 </script>
 
 <style>

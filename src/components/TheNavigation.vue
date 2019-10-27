@@ -11,11 +11,10 @@
             <b-nav-item :to="{ name: 'services' }">Services</b-nav-item>
             <b-nav-item :to="{ name: 'pricelist' }">Pricelist</b-nav-item>
             <b-nav-item :to="{ name: 'contacts' }">Contacts</b-nav-item>
+            <b-nav-item :to="{ name: 'admin' }">All reservations</b-nav-item>
         </b-navbar-nav>
-
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-
             <b-button :to="{ name: 'reservation' }">Reservation</b-button>
 
         </b-navbar-nav>
