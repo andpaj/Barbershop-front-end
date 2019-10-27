@@ -71,9 +71,9 @@
                       <b-list-group class="mt-3">
                         <b-form-group label="Choose time:">
                           <b-form-radio-group class="time-radio-list" stacked name="radio-size" size="lg">
-                            <b-form-radio v-for="time in availableTime" :key="time" :value="time"
+                            <b-form-radio v-for="(time, index) in availableTime" :key="index" :value="time.time"
                               v-model="form.time" :options="availableTime">
-                                {{ time }}
+                                {{ time.time }}
                             </b-form-radio>
                           </b-form-radio-group>
                         </b-form-group>
@@ -109,7 +109,7 @@
                     <b-form-group id="input-group-1" label="Your First Name:" label-for="input-1">
                       <b-form-input
                         id="input-1"
-                        v-model="form.firstname"
+                        v-model="form.firstName"
                         required
                         placeholder="Enter First Name"
                       ></b-form-input>
@@ -117,7 +117,7 @@
                     <b-form-group id="input-group-2" label="Your Last Name:" label-for="input-2">
                       <b-form-input
                         id="input-2"
-                        v-model="form.lastname"
+                        v-model="form.lastName"
                         required
                         placeholder="Enter Last Name"
                       ></b-form-input>
@@ -125,7 +125,7 @@
                     <b-form-group id="input-group-3" label="Your Telephone:" label-for="input-3">
                       <b-form-input
                         id="input-3"
-                        v-model="form.telephone"
+                        v-model="form.phone"
                         required
                         placeholder="Enter Telephone number"
                       ></b-form-input>
@@ -154,7 +154,6 @@
 <script>
 
   export default {
-      
 
     data() {
       return {
@@ -162,18 +161,19 @@
         tabIndex: 0,
           msg: 'Reservation',
         form: {
-          firstname: '',
-          lastname: '',
-          telephone: '',
-          email: '',
-          services: [],
           date: '',
+          email: '',
+          firstName: '',
+          lastName: '',
+          phone: '',
+          services: [],
           time: ''
         },
         selectedServices: [],
-        availableTime: ['10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00','14:30', '15:00', '15:30'],
+        availableTime: [],
         services: [],
         show: true,
+        response: ''
       }
     },
     methods: {
@@ -185,6 +185,7 @@
       onSubmit(evt) {
         evt.preventDefault()
         alert(JSON.stringify(this.form))
+        this.sendReservation()
       },
       onReset(evt) {
         evt.preventDefault()
@@ -205,10 +206,32 @@
             console.log(response.data)
             this.$data.services = response.data;
           })
-       }
+       },
+      loadTimes() {
+        this.axios.get('/times').then((response) => {
+          console.log(response.data)
+          this.$data.availableTime = response.data;
+        })
+      },
+      sendReservation() {
+        this.axios.post('/reservation/post', {
+          firstName: this.form.firstName,
+          lastName: this.form.lastName,
+          email: this.form.email,
+          phone: this.form.phone,
+          services: 'services',
+          date: this.form.data,
+          time: this.form.time
+        })
+        .then((response) => {console.log(response)})
+        .catch((e) => {
+          console.error(e)
+        })
+      }
     },
     mounted() {
        this.loadServices();
+       this.loadTimes();
     }
   }
 </script>

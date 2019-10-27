@@ -18,11 +18,9 @@
                 <span class="when-closed float-right">
                     <i class="fas fa-caret-left"></i>
                 </span>
-
                 <em class="service-name text--sans">{{ service.serviceName }} - {{ service.price }} euro</em>
               </b-btn>
             </b-card-header>
-
           </div>
         </b-card>
       </div>

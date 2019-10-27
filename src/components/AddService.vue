@@ -5,7 +5,11 @@
 
       <h1 class="h1">Here you can add a service</h1>
       <div class = "table">
-        <b-table striped hover :items="services"></b-table>
+        <b-table striped hover :items="services">
+          <b-list-group class="text-left">
+          <b-list-group-item v-for="(service, index) in services" :key="index">{{ service.serviceName }}</b-list-group-item>
+        </b-list-group>
+        </b-table>
       </div>
       <hr>
 
@@ -33,10 +37,10 @@
 <script>
 
   export default {
-  name: 'about',
+  name: 'add-service',
   data() {
     return {
-      services:[{name:"Cut", price:20 + " EUR", duration: "30" + " min"},{name:"Shave", price:30 + " EUR", duration: "30" + " min"}],
+      services:[],
       service: {name: "", price: "", duration:""}
     }
   },
@@ -45,9 +49,16 @@
   methods:{
     addNewService() {
       this.services.push({ name: this.service.name, price: this.service.price + " EUR", duration: this.service.duration + " min"})
-    }
-
-  }
+    },
+    loadServices() {
+              this.axios.get('/services/get').then((response) => {
+                this.$data.services = response.data;
+              })
+          }
+  },
+  mounted() {
+          this.loadServices();
+      }
 }
 
 
