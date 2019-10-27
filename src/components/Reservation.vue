@@ -17,11 +17,11 @@
                 <b-card-body title="Available services">
                   <hr>
                   <b-list-group>
-                    <b-list-group-item v-for="service in services"
-                      :key="service.value" class="d-flex justify-content-between align-items-center">
-                        <b-form-checkbox :value="service.value" v-model="form.services">{{ service.text }}
+                    <b-list-group-item v-for="(service, index) in services" :key="index"
+                      class="d-flex justify-content-between align-items-center">
+                        <b-form-checkbox :value="service.serviceName" v-model="form.services">{{ service.serviceName }}
                         </b-form-checkbox>
-                        <b-badge  pill>~30 min.</b-badge>
+                        <b-badge  pill>~{{ service.duration }} min.</b-badge>
                     </b-list-group-item>
                   </b-list-group>
                   <div class="text-right">
@@ -172,12 +172,7 @@
         },
         selectedServices: [],
         availableTime: ['10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00','14:30', '15:00', '15:30'],
-        services: [
-          { text: 'HAIRCUTTING', value: 'HAIRCUTTING' },
-          { text: 'Intim haircut', value: 'Intim haircut' },
-          { text: 'SHAVING', value: 'SHAVING' },
-          { text: 'BEARD AND MOUSTACHE TRIMMING', value: 'BEARD AND MOUSTACHE TRIMMING' }
-        ],
+        services: [],
         show: true,
       }
     },
@@ -204,7 +199,16 @@
         this.$nextTick(() => {
           this.show = true
         })
-      }
+      },
+      loadServices() {
+          this.axios.get('/services/get').then((response) => {
+            console.log(response.data)
+            this.$data.services = response.data;
+          })
+       }
+    },
+    mounted() {
+       this.loadServices();
     }
   }
 </script>

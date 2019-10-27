@@ -19,7 +19,7 @@
                     <i class="fas fa-caret-left"></i>
                 </span>
 
-                <em class="service-name text--sans">{{service[0]}} - {{service[1]}} - {{service[2]}} </em>
+                <em class="service-name text--sans">{{ service.serviceName }} - {{ service.price }} euro</em>
               </b-btn>
             </b-card-header>
 
@@ -37,41 +37,20 @@
     name: 'services_list',
     data() {
       return {
-
-        services: [["Masinlõikus", "15EUR", "30min"],["Juukselõikus kääridega", "20EUR", "30min"],["Habeme kujundamine\n" +
-        "(trimmer + pardel)", "25EUR", "30min"], ["Habeme kujundamine", "30EUR", "30min"]],
+        services: [],
       }
-    }
-  }
-
-  /**,
-   methods: {
-
-    //Тут идет запрос в базу и получение данных и запись в массив
-    getPersons: function () {
-      axios.get('/api/curators')
-              .then((response) => {
+    },
+      methods: {
+          loadServices() {
+              this.axios.get('/services/get').then((response) => {
+                this.$data.services = response.data;
               })
-              .catch((error) => {
-
-              })
-    }
-  },
-
-   created () {
-
-    this.services = this.$store.getters.getCurators
-    this.$store.dispatch('fetchCurators')
-            .then((data) => {
-              this.services = data
-            })
-            .catch(err => {
-
-            })
+          }
+      },
+      mounted() {
+          this.loadServices();
+      }
   }
-
-   }
-   */
 </script>
 
 <style>
