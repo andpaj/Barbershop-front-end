@@ -202,13 +202,13 @@
         })
       },
       loadServices() {
-          this.axios.get('/services/get').then((response) => {
+          this.axios.get('/services/findall').then((response) => {
             console.log(response.data)
             this.$data.services = response.data;
           })
        },
       loadTimes() {
-        this.axios.get('/times').then((response) => {
+        this.axios.get('/times/findall').then((response) => {
           console.log(response.data)
           this.$data.availableTime = response.data;
         })

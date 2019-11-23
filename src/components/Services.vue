@@ -23,7 +23,7 @@ export default {
   },
   methods: {
         loadServices() {
-          this.axios.get('/services/get').then((response) => {
+          this.axios.get('/services/findall').then((response) => {
             this.$data.services = response.data;
           })
        }
