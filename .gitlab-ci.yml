@@ -16,8 +16,10 @@ build alko-students-front:
   variables:
     api: localhost/api
   script:
-    - yarn install
-    - yarn run build
+    - npm install
+    - npm run serve
+    - npm run build
+    - npm run lint
 
 deploy alko-students-front:
   stage: deploy
