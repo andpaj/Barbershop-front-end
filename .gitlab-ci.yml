@@ -1,0 +1,29 @@
+stages:
+  - build
+  - deploy
+
+build alkostudents-vue:
+  stage: build
+  image: node:11-alpine
+  cache:
+    paths:
+      - node_modules
+  artifacts:
+    paths:
+      - dist
+  tags:
+    - alkostudents-front-tag
+  variables:
+    api: localhost/api
+  script:
+    - yarn install
+    - yarn run build
+
+deploy alkostudents-vue:
+  stage: deploy
+  tags:
+    - alkostudents-front-tag
+  script:
+    - mkdir -p ~/front-deployment
+    - rm -rf ~/front-deployment/*
+    - cp -r dist/alkostudents-vue/. ~/front-deployment
