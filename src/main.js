@@ -14,10 +14,10 @@ Vue.use(Vuex);
 // Use v-calendar & v-date-picker components
 Vue.use(VCalendar);
 
-Vue.use(BootstrapVue) 
+Vue.use(BootstrapVue)
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
-axios.defaults.baseURL = 'http://18.189.16.204:9000/'
+axios.defaults.baseURL = 'http://18.189.16.204:9000/api'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
 new Vue({
