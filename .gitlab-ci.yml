@@ -16,7 +16,7 @@ build alko-students-front:
   variables:
     api: localhost/api
   script:
-    - npm ci
+    - npm ci 
     - npm run build
 
 deploy alko-students-front:
