@@ -9,7 +9,7 @@
         name: 'home',
         data () {
             return {
-                msg: 'Welcome to Java Paricmaherq barbershop'
+                msg: 'Welcome to Alkostudents barbershop'
             }
         }
     }
