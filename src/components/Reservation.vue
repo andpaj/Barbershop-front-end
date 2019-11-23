@@ -220,7 +220,7 @@
           email: this.form.email,
           phone: this.form.phone,
           services: 'services',
-          date: this.form.data,
+          date: this.form.date,
           time: this.form.time
         })
         .then((response) => {console.log(response)})
