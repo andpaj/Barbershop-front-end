@@ -4,7 +4,7 @@ stages:
 
 build alko-students-front:
   stage: build
-  image: node:11-alpine
+  image: node:latest
   cache:
     paths:
       - node_modules
@@ -16,10 +16,8 @@ build alko-students-front:
   variables:
     api: localhost/api
   script:
-    - npm install
-    - npm run serve
+    - npm ci
     - npm run build
-    - npm run lint
 
 deploy alko-students-front:
   stage: deploy
