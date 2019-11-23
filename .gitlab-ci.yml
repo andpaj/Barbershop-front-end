@@ -2,7 +2,7 @@ stages:
   - build
   - deploy
 
-build alkostudents-vue:
+build alko-students-front:
   stage: build
   image: node:11-alpine
   cache:
@@ -19,11 +19,11 @@ build alkostudents-vue:
     - yarn install
     - yarn run build
 
-deploy alkostudents-vue:
+deploy alko-students-front:
   stage: deploy
   tags:
     - alkostudents-front-tag
   script:
     - mkdir -p ~/front-deployment
     - rm -rf ~/front-deployment/*
-    - cp -r dist/alkostudents-vue/. ~/front-deployment
+    - cp -r dist/alko-students-front/. ~/front-deployment
