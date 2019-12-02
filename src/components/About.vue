@@ -1,6 +1,5 @@
 <template>
   <div class="about">
-    {{ msg }}
     <div class="heading"><h1>{{ msg }}</h1></div>
     <b-container class="text">
       <b-row>
