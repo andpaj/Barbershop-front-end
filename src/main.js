@@ -17,7 +17,7 @@ Vue.use(VCalendar);
 Vue.use(BootstrapVue)
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
-axios.defaults.baseURL = 'http://3.134.57.255:9000/api'
+axios.defaults.baseURL = 'http://40.112.69.208:9000/api'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
 new Vue({
