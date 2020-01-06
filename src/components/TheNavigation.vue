@@ -1,7 +1,9 @@
 <template>
   <div>
     <b-navbar toggleable="lg" type="dark" variant="dark">
-        <b-navbar-brand :to="{ name: 'home' }">Home</b-navbar-brand>
+        <b-navbar-brand :to="{ name: 'home' }">
+            <img src="../assets/logo/barber-logo.png" alt="Home">
+        </b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -10,7 +12,6 @@
             <b-nav-item :to="{ name: 'about' }">About us</b-nav-item>
             <b-nav-item :to="{ name: 'services' }">Services</b-nav-item>
             <b-nav-item :to="{ name: 'pricelist' }">Pricelist</b-nav-item>
-            <b-nav-item :to="{ name: 'contacts' }">Contacts</b-nav-item>
             <b-nav-item :to="{ name: 'admin' }">All reservations</b-nav-item>
         </b-navbar-nav>
         <!-- Right aligned nav items -->
@@ -30,5 +31,11 @@ export default {
 </script>
 
 <style>
+
+    img {
+        filter: brightness(0) invert(1);
+        width: 65px;
+        height: 40px;
+    }
 
 </style>
