@@ -1,37 +1,93 @@
 <template>
-  <div class="about">
+  <div>
+    <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="bg-img-container">
+            <div class="bg-img">
+              <div class="bg-header-container">
+                <h1>Services managing</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div> 
+    <div class="row justify-content-center content-container">
+        <div class="col-10 editor-container">
+            <div>
+              <div class="header-container">
+                <h2>Manage services</h2>
+              </div>
+              <b-card no-body class="edit-tabs-container">
+                <b-tabs pills card vertical class="tabs-container">
+                  <b-tab title="Active services" active class="tab">
+                    <b-list-group class="services-list-container">
+                      <b-list-group-item class="flex-column align-items-start service-container" 
+                        v-for="(service, index) in services" :key="index">
+                        
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1" :value="service.serviceName">{{ service.serviceName }}</h5>
+                          <b-button size="sm" variant="danger">Delete</b-button>
+                        </div>
 
-    <div calss="app">
+                        <p class="mb-1">Price: {{ service.price }} EUR.</p>
 
-      <h1 class="h1">Here you can add a service</h1>
-      <div class = "table">
-        <b-table striped hover :items="services">
-          <b-list-group class="text-left">
-          <b-list-group-item v-for="(service, index) in services" :key="index">{{ service.serviceName }}</b-list-group-item>
-        </b-list-group>
-        </b-table>
-      </div>
-      <hr>
+                        <em>Duration: {{ service.duration }} min.</em>
+                      </b-list-group-item>
 
-      <form v-on:submit.prevent="addNewService" class="form" id="form">
-        <div class="form-group">
-          <label>Service name</label>
-          <input v-model="service.name" type="text" class="form-control" id="name" placeholder="Service name">
+                    </b-list-group>
+                  </b-tab>
+                  <b-tab title="Add Service">
+                    <div class="add-service">
+                      <b-form @submit="submit" v-if="show">
+                        <b-form-group
+                          id="input-group-1"
+                          label="Service info"
+                          label-for="input-1"
+                        >
+                          <b-form-input
+                            id="input-1"
+                            v-model="form.name"
+                            type="text"
+                            required
+                            placeholder="Enter new service name"
+                          ></b-form-input>
+                        </b-form-group>
+
+                        <b-form-group id="input-group-2" 
+                          label="Service Price:" 
+                          label-for="input-2"
+                          description="Put only number"  
+                        >
+                          <b-form-input
+                            id="input-2"
+                            v-model="form.price"
+                            required
+                            placeholder="Enter service price"
+                          ></b-form-input>
+                        </b-form-group>
+
+                        <b-form-group id="input-group-3" 
+                          label="Service duration:" 
+                          label-for="input-3"
+                          description="Put only number"
+                        >
+                          <b-form-input
+                            id="input-3"
+                            v-model="form.duration"
+                            required
+                          ></b-form-input>
+                        </b-form-group>
+
+                        <b-button type="submit" variant="primary">Add</b-button>
+                      </b-form>
+                    </div>
+                  </b-tab>
+                </b-tabs>
+              </b-card>
+            </div>
         </div>
-        <div class="form-group">
-          <label>Service Price</label>
-          <input v-model="service.price" type="text" class="form-control" id="price" placeholder="Service price">
-        </div>
-        <div class="form-group">
-          <label>Service duration</label>
-          <input v-model="service.duration" type="text" class="form-control" id="duration" placeholder="Service duration">
-        </div>
-        <div class="form-group">
-          <button type="submit">Add Service</button>
-        </div>
-      </form>
     </div>
-  </div>
+  </div> 
 </template>
 
 <script>
@@ -41,45 +97,99 @@
   data() {
     return {
       services:[],
-      service: {name: "", price: "", duration:""}
+      service: {name: "", price: "", duration:""},
+      form: {
+          name: '',
+          price: null,
+          duration: null,
+        },
+        show: true,
+        response: ''
     }
   },
 
 
   methods:{
-    addNewService() {
-      this.services.push({ name: this.service.name, price: this.service.price + " EUR", duration: this.service.duration + " min"})
+    submit(evt) {
+      evt.preventDefault()
+      alert(JSON.stringify(this.form))
+      this.sendService()
     },
+
     loadServices() {
-              this.axios.get('/services/findall').then((response) => {
-                this.$data.services = response.data;
-              })
-          }
-  },
-  mounted() {
-          this.loadServices();
-      }
+        this.axios.get('/services/findall').then((response) => {
+          this.$data.services = response.data;
+        })
+    },
+
+    sendService () {
+      this.axios.post('/services/create', {
+        name: this.form.name,
+        price: this.form.price,
+        duration: this.form.duration
+      })
+      .then((response) => {console.log(response)})
+      .catch((e) => {
+        console.error(e)
+      })
+    },
+
+    mounted() {
+      this.loadServices();
+    }
+  
+  }
+    
 }
 
 
 </script>
 
 <style>
-  .h1{
-    padding-top: 30px;
+
+  .text{
+    font-size: 20px;
+  }
+    .picture{
+    padding-bottom: 100px;
+  }
+    .heading{
+      padding-bottom: 80px;
+    }
+
+  .bg-img {
+    background-image: linear-gradient(to bottom, rgba(45, 45, 49, 0.52), rgba(24, 23, 24, 0.73)),
+      url('../assets/background/bg-1.jpg');
   }
 
-  .form{
-    width: 600px;
-    margin-left: 400px;
-    padding-top: 50px;
-    border: 2px solid black;
-    border-radius: 20px;
-
-
-
+  .service-container {
+    border-right: none !important;
+    border-left: none !important;
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;  
   }
 
+  .edit-tabs-container {
+    margin: 40px auto;
+  }
 
+  .editor-container {
+    max-width: 1250px !important;
+  }
+
+  .tab-content {
+    max-height: 500px !important;
+    overflow: scroll;
+  }
+
+  @media only screen and (max-width: 700px) {
+    h2 {
+      text-align: center !important;
+    }
+
+    .btn {
+      height: 2rem;
+    }
+  }
 
 </style>

@@ -237,14 +237,7 @@
 </script>
 
 <style scoped>
-  .reservation {
-    position: fixed;
-    background-image: url('../assets/reservation-bg.jpg');
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+  
 
   .reservation-title {
     margin: 30px auto;

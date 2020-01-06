@@ -1,24 +1,74 @@
 <template>
-  <div class="about">
-    <div class="heading"><h1>{{ msg }}</h1></div>
-    <b-container class="text">
-      <b-row>
-        <b-col>Our barbershop has appeared due to the project of our university and inspired by Tallinn barbershop "Truman"
-          <b-img src="https://www.ttu.ee/public/u/ulikool/Tunnusgraafika/Logod/TTU_lyhend/Peamine/TTU_logo_lyhend_peamine_EST_print.jpg" fluid alt="Responsive image" class="picture"></b-img>
-        </b-col>
-        <b-col>We have chosen this topic because nowadays it is very popular industry. We offer you a web application that will gift you the best haircut in your life
-          <b-img src="https://s3-media0.fl.yelpcdn.com/bphoto/d5jrXTgjiCKDTLS5sqWJgw/ls.jpg" fluid alt="Responsive image"></b-img>
-        </b-col>
-
-        <b-col>
-          Front-end created using Vue js and Bootstrap
-          <b-img src="https://www.fullstackpython.com/img/logos/vuejs-wide.png" fluid alt="Responsive image"></b-img>
-        </b-col>
-
-      </b-row>
-    </b-container>
+<div>
+  <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="bg-img-container">
+          <div class="bg-img">
+            <div class="bg-header-container">
+              <h1>About us</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div> 
+  <div class="row justify-content-center content-container">
+      <div class="col-10">
+        <div>
+          <div class="header-container">
+            <h2>How to find us</h2>
+          </div>
+          <div class="row content-row">
+            <div class="col-md-6">
+              <div class="about">
+                <div>
+                  <h3>Contact information</h3>
+                  <p>
+                    Alko Barbers Tallinn
+                    <br>
+                    Ulemiste Keskus, (3. korrus)
+                    <br>
+                    Suur-Sõjamäe 4
+                    <br>
+                    11415 Tallinn.
+                  </p>
+                  <a href="mailto: alkostudents@ttu.com"><span itemprop="email">alkostudents@ttu.com</span></a>
+                  <br>
+                  <a href="tel: +37253050529">Tel. <span itemprop="telephone">+37253050529</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+                <div class="about">
+                  <div>
+                    <h3>Open</h3>
+                    <p>
+                      Mon: 10:00 - 20:00
+                      <br>
+                      Tue: 10:00 - 20:00
+                      <br>
+                      Wed: 10:00 - 20:00
+                      <br>
+                      Thu: 10:00 - 20:00
+                      <br>
+                      Fri: 10:00 - 20:00
+                      <br>
+                      Sat: 10:00 - 20:00
+                      <br>
+                      Sun: 10:00 - 20:00
+                    </p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
   </div>
-
+  <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="span8"><iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=15+Springfield+Way,+Hythe,+CT21+5SH&amp;aq=t&amp;sll=52.8382,-2.327815&amp;sspn=8.047465,13.666992&amp;ie=UTF8&amp;hq=&amp;hnear=15+Springfield+Way,+Hythe+CT21+5SH,+United+Kingdom&amp;t=m&amp;z=14&amp;ll=51.077429,1.121722&amp;output=embed"></iframe></div>
+      </div>
+  </div>
+</div> 
 </template>
 
 <script>
@@ -33,15 +83,24 @@ export default {
 </script>
 
 <style>
-.text{
-  font-size: 20px;
-}
-  .picture{
-  padding-bottom: 100px;
-}
-  .heading{
-    padding-bottom: 80px;
+  .text{
+    font-size: 20px;
+  }
+    .picture{
+    padding-bottom: 100px;
+  }
+    .heading{
+      padding-bottom: 80px;
+    }
+
+  .bg-img {
+    background-image: linear-gradient(to bottom, rgba(45, 45, 49, 0.52), rgba(24, 23, 24, 0.73)),
+      url('../assets/background/bg-1.jpg');
   }
 
-
+  .about {
+    padding-top: 40px;
+    text-align: left;
+  }
+  
 </style>

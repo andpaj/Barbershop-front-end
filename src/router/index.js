@@ -4,7 +4,6 @@ import Home from '../components/Home'
 import About from '../components/About'
 import Services from '../components/Services'
 import Pricelist from '../components/Pricelist'
-import Contacts from '../components/Contacts'
 import Reservation from '../components/Reservation'
 import AdminPage from '../components/AdminPage'
 import AddService from '../components/AddService'
@@ -35,11 +34,6 @@ export default new Router({
       name: 'pricelist'
     },
     {
-      path: '/contacts',
-      component: Contacts,
-      name: 'contacts'
-    },
-    {
       path: '/reservation',
       component: Reservation,
       name: 'reservation'
@@ -50,7 +44,7 @@ export default new Router({
       name: 'admin'
     },
     {
-      path: '/add-service',
+      path: '/admin/add-service',
       component: AddService,
       name: 'add-service'
     }
