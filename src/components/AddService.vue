@@ -19,7 +19,8 @@
               </div>
               <b-card no-body class="edit-tabs-container">
                 <b-tabs pills card vertical class="tabs-container">
-                  <b-tab title="Active services" active class="tab">
+
+                  <b-tab title="Active services" active class="tab" v-on:click="getServ">
                     <b-list-group class="services-list-container">
                       <b-list-group-item class="flex-column align-items-start service-container" 
                         v-for="(service, index) in services" :key="index">
@@ -36,6 +37,7 @@
 
                     </b-list-group>
                   </b-tab>
+
                   <b-tab title="Add Service">
                     <div class="add-service">
                       <b-form @submit="submit" v-if="show">
@@ -132,13 +134,12 @@
       .catch((e) => {
         console.error(e)
       })
-    },
+    }
 
+  },
     mounted() {
       this.loadServices();
     }
-  
-  }
     
 }
 
