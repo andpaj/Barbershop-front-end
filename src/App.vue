@@ -5,6 +5,7 @@
     </div>
     <div class="row justify-content-center main-container">
       <div class="col-12">
+        <login-modal title="User Modal" text="Testing Bootstrap Modal" />
         <router-view/>
       </div>
     </div>
@@ -13,10 +14,12 @@
 
 <script>
 import TheNavigation from './components/TheNavigation'
+import LoginModal from "./components/LoginModal.vue";
 export default {
   name: 'App',
   components: {
     'the-navigation': TheNavigation,
+    'login-modal': LoginModal
   }
 }
 </script>

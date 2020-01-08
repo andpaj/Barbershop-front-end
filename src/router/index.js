@@ -7,6 +7,7 @@ import Pricelist from '../components/Pricelist'
 import Reservation from '../components/Reservation'
 import AdminPage from '../components/AdminPage'
 import AddService from '../components/AddService'
+import Profile from '../components/Profile'
 
 Vue.use(Router)
 
@@ -41,12 +42,26 @@ export default new Router({
     {
       path: '/admin',
       component: AdminPage,
-      name: 'admin'
+      name: 'admin',
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/admin/add-service',
       component: AddService,
-      name: 'add-service'
+      name: 'add-service',
+      meta: {
+        auth: true
+      }
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile,
+      meta: {
+        auth: true
+      }
     }
   ]
 })
