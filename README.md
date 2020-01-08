@@ -1,6 +1,6 @@
 # alko-students-front
 
-## Project setup
+## Project setup locally
 ```
 npm install
 ```
