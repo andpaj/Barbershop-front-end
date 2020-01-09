@@ -20,7 +20,7 @@
               <b-card no-body class="edit-tabs-container">
                 <b-tabs pills card vertical class="tabs-container">
 
-                  <b-tab title="Active services" active class="tab" v-on:click="getServ">
+                  <b-tab title="Active services" active class="tab" v-on:click="loadServices">
                     <b-list-group class="services-list-container">
                       <b-list-group-item class="flex-column align-items-start service-container" 
                         v-for="(service, index) in services" :key="index">
@@ -64,6 +64,7 @@
                             id="input-2"
                             v-model="form.price"
                             required
+                            type="number"
                             placeholder="Enter service price"
                           ></b-form-input>
                         </b-form-group>
@@ -77,6 +78,8 @@
                             id="input-3"
                             v-model="form.duration"
                             required
+                            type="number"
+                            placeholder="Enter service duration"
                           ></b-form-input>
                         </b-form-group>
 
@@ -126,7 +129,7 @@
 
     sendService () {
       this.axios.post('/services/create', {
-        name: this.form.name,
+        serviceName: this.form.name,
         price: this.form.price,
         duration: this.form.duration
       })
