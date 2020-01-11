@@ -59,10 +59,6 @@
 
 <style scoped>
 
-.alert-container {
-  margin-top: 10px; 
-}
-
 .services-list {
   margin-top: 30px;
 }
@@ -73,10 +69,6 @@
 }
 
 @media only screen and (max-width: 700px) {
-
-  .alert-container {
-    margin-top: 0; 
-  }
 
   .content-container {
     margin: 0 auto;
