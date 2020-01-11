@@ -40,7 +40,7 @@
                         
                         <div class="d-flex w-100 justify-content-between">
                           <h5 class="mb-1" :value="service.serviceName">{{ service.serviceName }}</h5>
-                          <b-button class="button-delete" size="sm" variant="danger" @click="deleteService(service)">Delete</b-button>
+                          <b-button class="button-delete" size="sm" variant="danger" @click="deleteService(service.id)">Delete</b-button>
                         </div>
 
                         <p class="mb-1">Price: {{ service.price }} EUR.</p>
@@ -167,8 +167,17 @@
       }
     },
 
-    deleteService(service) {
-      console.log(service)
+    deleteService(id) {
+      this.axios.delete('/services/delete', {
+        data: {
+          id: id
+        }
+      })
+              .then((response) => {console.log(response)})
+              .catch((e) => {
+                console.error(e)
+              })
+
     },
 
     submit(evt) {
