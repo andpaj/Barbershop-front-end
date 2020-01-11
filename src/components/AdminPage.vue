@@ -139,13 +139,26 @@ export default {
             id: this.selected[0].id
           }
         })
-                .then((response) => {console.log(response)})
+                .then((response) => {
+                  console.log(response)
+                  this.deleteReservationFromList(this.selected[0].id)})
                 .catch((e) => {
                   console.error(e)
                 })
-      }
+      },
 
-    },
+      deleteReservationFromList(id) {
+        var i = this.registration_list.map(item => item.id).indexOf(id)
+        this.registration_list.splice(i, 1)
+      },
+
+
+
+
+
+      },
+
+
     mounted() {
         this.loadReserv();
     }
