@@ -27,7 +27,7 @@
                   :title-link-class="title_link_class"
               >
                 <b-row no-gutters>
-                  <b-col order="1"  order-md="0" md="6" class="reservation-info-list">
+                  <b-col order="2"  order-md="0" md="6" class="reservation-info-list">
                     <b-card-body title="Chosen Service">
                       <hr>
                       <b-list-group>
@@ -35,7 +35,7 @@
                       </b-list-group>
                     </b-card-body>
                   </b-col>
-                  <b-col md="6" class="reservation-choose-list">
+                  <b-col order="1" order-md="0" md="6" class="reservation-choose-list">
                     <b-card-body title="Available services">
                       <hr>
                       <p class="tab-description" >Choose one ore more services that you want</p>
@@ -58,7 +58,7 @@
                   :title-link-class="title_link_class"
               >
                 <b-row no-gutters>
-                  <b-col order="1" order-md="0" md="6" class="reservation-info-list">
+                  <b-col order="2" order-md="0" md="6" class="reservation-info-list">
                     <b-card-body title="Chosen Service">
                       <hr>
                       <b-list-group>
@@ -75,7 +75,7 @@
                       </b-list-group>
                     </b-card-body>
                   </b-col>
-                  <b-col md="6" class="reservation-choose-list">
+                  <b-col  order="1" order-md="0" md="6" class="reservation-choose-list">
                     <b-card-body title="Available time">
                         <hr>
                         <p class="tab-description" >Choose date and submit it. After that choose more suitebalte time for you</p>

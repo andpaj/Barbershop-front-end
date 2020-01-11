@@ -40,7 +40,7 @@
                         
                         <div class="d-flex w-100 justify-content-between">
                           <h5 class="mb-1" :value="service.serviceName">{{ service.serviceName }}</h5>
-                          <b-button class="button-delete" size="sm" variant="danger">Delete</b-button>
+                          <b-button class="button-delete" size="sm" variant="danger" @click="deleteService(service)">Delete</b-button>
                         </div>
 
                         <p class="mb-1">Price: {{ service.price }} EUR.</p>
@@ -61,7 +61,7 @@
                         <b-form @submit="submit" v-if="show">
                           <b-form-group
                             id="input-group-1"
-                            label="Service info"
+                            label="Service name"
                             label-for="input-1"
                           >
                             <b-form-input
@@ -165,6 +165,10 @@
       } else {
         this.isVertical = false
       }
+    },
+
+    deleteService(service) {
+      console.log(service)
     },
 
     submit(evt) {
