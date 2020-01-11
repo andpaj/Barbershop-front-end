@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../components/Home'
 import About from '../components/About'
-import Services from '../components/Services'
 import Pricelist from '../components/Pricelist'
 import Reservation from '../components/Reservation'
 import AdminPage from '../components/AdminPage'
@@ -23,11 +22,6 @@ export default new Router({
       path: '/about',
       component: About,
       name: 'about'
-    },
-    {
-      path: '/services',
-      component: Services,
-      name: 'services'
     },
     {
       path: '/pricelist',
