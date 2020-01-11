@@ -1,6 +1,16 @@
 <template>
     <b-row class="justify-content-md-center">
-        <b-col cols="12" md="6" class="">
+        <b-col cols="6" md="6" class="">
+            <div class="bg-login-img-container">
+            <div class="bg-login-img">
+              <div class="bg-header-container">
+                <h1>Login</h1>
+              </div>
+            </div>
+          </div>
+        </b-col>
+        <b-col cols="6" md="6" class="">
+
             <b-form class="form__signin sign-in__transaction"
                     @submit.prevent="handleLogin">
                 <b-form-group label="Username:"
@@ -38,7 +48,7 @@
             </b-form>
             <div class="link-container">
                 <h6>Don't have an account?</h6>
-                <b-button size="sm" :to="{ name: 'Register' }">Register now!</b-button>
+                <b-link size="sm" :to="{ name: 'register' }">Register now!</b-link>
             </div>
         </b-col>
     </b-row>

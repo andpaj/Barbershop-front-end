@@ -52,7 +52,10 @@
             return {
                 
             }
-        }
+        },
+        mounted() {
+            this.$store.state.isLogin = false
+        },
     }
 </script>
 

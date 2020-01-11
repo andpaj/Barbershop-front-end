@@ -1,12 +1,11 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <the-navigation/>
+    <div id="nav" >
+      <the-navigation v-if="this.$route.path !== '/login' && this.$route.path !== '/registration' "/>
     </div>
     <div class="row justify-content-center main-container">
       <div class="col-12">
-        <login-modal title="User Modal" text="Testing Bootstrap Modal" />
-        <router-view/>
+        <router-view :key="$route.fullPath"/>
       </div>
     </div>
   </div>
@@ -14,12 +13,10 @@
 
 <script>
 import TheNavigation from './components/TheNavigation'
-import LoginModal from "./components/LoginModal.vue";
 export default {
   name: 'App',
   components: {
     'the-navigation': TheNavigation,
-    'login-modal': LoginModal
   },
   computed: {
     currentUser() {
@@ -92,6 +89,20 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+  }
+
+  .bg-img-container {
+    width: 100%;
+    height: 40vh;
+  }
+
+  .bg-img {
+    width: inherit;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
   }
 
   .bg-header-container {

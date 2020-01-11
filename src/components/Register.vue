@@ -69,7 +69,7 @@
                 </b-form-group>
             </b-form>
             <div class="link-container">
-                <b-button class="button-signin" variant="primary" :to="{ name: 'Login' }" size="sm"> Back to Login</b-button>
+                <b-button class="button-signin" variant="primary" :to="{ name: 'login' }" size="sm"> Back to Login</b-button>
             </div>
         </b-col>
     </b-row>
