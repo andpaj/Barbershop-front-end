@@ -31,9 +31,9 @@
                     <br>
                     11415 Tallinn.
                   </p>
-                  <a href="mailto: alkostudents@ttu.com"><span itemprop="email">alkostudents@ttu.com</span></a>
+                  <a href="mailto: alkostudents@ttu.com"><span itemprop="email" class="link">alkostudents@ttu.com</span></a>
                   <br>
-                  <a href="tel: +37253050529">Tel. <span itemprop="telephone">+37253050529</span></a>
+                  <a href="tel: +37253050529" class="link">Tel. <span itemprop="telephone" class="link">+37253050529</span></a>
                 </div>
               </div>
             </div>

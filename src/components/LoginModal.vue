@@ -1,42 +1,51 @@
 <template>
-    <b-modal id="loginModal"  ref="login-modal" centered hide-footer hide-header>
-        <div class="row justify-content-center" v-if="isLogin">
-            <div class="Header">Login</div>
-            <b-form class="form__signin sign-in__transaction"
-                    @submit="onLoginSubmit">
-                <b-form-group label="Username"
-                                label-for="auth-username"
-                                class="mb-2">
-                    <b-form-input id="auth-username"
-                                type="text"
-                                required
-                                v-model="user.username">
-                    </b-form-input>
-                </b-form-group>
-                <b-form-group label="Password"
-                                label-for="auth-password">
-                    <b-form-input id="auth-password"
-                                type="password"
-                                required
-                                v-model="user.password">
-                    </b-form-input>
-                </b-form-group>
-                <b-form-group>
-                    <div class="div__button">
-                    <b-button type="submit"
-                            variant="primary"
-                            class="button--signin"
-                            >
-                        SignIn
-                    </b-button>
-                    <p class="text forgot-password">Forgot password</p>
-                    </div>
-                </b-form-group>
-            </b-form>
-            
-        </div>
-        <div class="row justify-content-center" v-if="!isLogin">
-            <div class="Header">Registration</div>
+    <b-modal id="loginModal"  
+            ref="login-modal" 
+            centered 
+            hide-footer 
+            :title="modalTitle"
+        >
+        <b-row v-if="isLogin" class="justify-content-md-center">
+            <b-col cols="12" md="6" class="">
+                <b-form class="form__signin sign-in__transaction"
+                        @submit="onLoginSubmit">
+                    <b-form-group label="Username:"
+                                    label-for="auth-username"
+                                    class="mb-2">
+                        <b-form-input id="auth-username"
+                                    type="text"
+                                    required
+                                    placeholder="Enter username"
+                                    v-model="user.username">
+                        </b-form-input>
+                    </b-form-group>
+                    <b-form-group label="Password:"
+                                    label-for="auth-password">
+                        <b-form-input id="auth-password"
+                                    type="password"
+                                    required
+                                    placeholder="Enter password"
+                                    v-model="user.password">
+                        </b-form-input>
+                    </b-form-group>
+                    <b-form-group>
+                        <b-button type="submit"
+                                variant="outline-primary"
+                                class="button-signin"
+                                size="sm"
+                                >
+                            SignIn
+                        </b-button>
+                    </b-form-group>
+                </b-form>
+                <div class="link-container">
+                    <h6>Does not have account?</h6>
+                    <b-link class="link" size="sm" @click="switchToRegister" v-if="isLogin">Register now!</b-link>
+                </div>
+            </b-col>
+        </b-row>
+        <b-row v-if="!isLogin" class="justify-content-md-center">
+            <b-col cols="12" md="6">
                 <b-form class="form__registration sign-up__transaction"
                     @submit="onRegisterSubmit">
                     <b-form-group label="Firstname:"
@@ -46,6 +55,7 @@
                                     class="label--margin"
                                     type="text"
                                     required
+                                    placeholder="Enter firstname"
                                     v-model="user.firstname">
                         </b-form-input>
                     </b-form-group>
@@ -56,6 +66,7 @@
                                     class="label--margin"
                                     type="text"
                                     required
+                                    placeholder="Enter lastname"
                                     v-model="user.lastname">
                         </b-form-input>
                     </b-form-group>
@@ -66,6 +77,7 @@
                                     class="label--margin"
                                     type="text"
                                     required
+                                    placeholder="Enter username"
                                     v-model="user.username">
                     </b-form-input>
                     </b-form-group>
@@ -76,6 +88,7 @@
                                     class="label--margin"
                                     type="password"
                                     required
+                                    placeholder="Enter password"
                                     v-model="user.password">
                     </b-form-input>
                     </b-form-group>
@@ -86,23 +99,28 @@
                                     class="label--margin"
                                     type="email"
                                     required
+                                    placeholder="Enter email"
                                     v-model="user.email">
                     </b-form-input>
                     </b-form-group>
-                    <b-button
+                    <b-form-group>
+                        <b-button
                             type="submit"
-                            variant="primary"
-                            class="button-continue"
+                            variant="outline-primary"
+                            class="button-signin"
+                            size="sm"
                             >
-                    Registration
-                    </b-button>
-            </b-form>
-        </div>
-        <div class="row justify-content-center">
-            <div class="buttons-container">
-                <b-button class="" size="sm" @click="switchToRegister" v-if="isLogin">Registration</b-button>
-                <b-button class="" size="sm" @click="switchToLogin" v-if="!isLogin">Login</b-button>
-            </div>
+                        Registration
+                        </b-button>
+                    </b-form-group>
+                </b-form>
+                <div class="link-container">
+                    <b-button variant="primary" class="button-signin" size="sm" @click="switchToLogin" v-if="!isLogin"> Back to Login</b-button>
+                </div>
+            </b-col>
+        </b-row>
+        <div class="col-6" v-if="!isLogin">
+                
         </div>
     </b-modal>
 </template>
@@ -114,6 +132,7 @@ const touchMap = new WeakMap()
 export default {
     data () {
         return {
+            modalTitle: 'Login',
             isLogin: true,
             user: {
                 firstname: '',
@@ -168,13 +187,18 @@ export default {
 
         switchToRegister () {
             this.isLogin = false
+            this.modalTitle = 'Registration'
         },
 
         switchToLogin () {
             this.isLogin = true
+            this.modalTitle = 'Login'
         }
-
     },
+    mounted() {
+        console.log('test')
+    },
+
     validations: {
         user: {
             firstname: {
@@ -206,7 +230,17 @@ export default {
 </script>
 
 <style scoped>
+    .modal-header {
+        border-bottom: none !important; 
+    }
+
+    .button-signin {
+        width: 100%;
+    }
+
+    .link-container {
+        text-align: center;
+    }
 
 
-  
 </style>

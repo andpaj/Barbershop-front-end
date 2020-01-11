@@ -30,19 +30,27 @@ export default {
     margin: 0;
     padding: 0;
     position: relative;
+    background-color: #eef1f1 !important;
   }
 
   #app {
     min-height: 100%;
     overflow: auto;
     position: relative;
-  }
-
-  #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
+  } 
+
+  .link {
+    color: #a07431;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .link:hover {
+    color: #583706;
   }
 
   .main-container {
@@ -107,6 +115,23 @@ export default {
 
   p {
     font-weight: 500;
+  }
+
+  p.tab-description {
+    font-size: 12px !important;
+  }
+
+  .outline-none {
+    outline: none !important;
+    z-index: unset !important;
+  }
+
+  .outline-none:focus {
+    outline: none !important;
+  }
+
+  .outline-none:active {
+    outline: none !important;
   }
 
   @media only screen and (max-width: 700px) {

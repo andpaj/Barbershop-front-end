@@ -9,11 +9,9 @@
 
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
+                    <b-nav-item :to="{ name: 'pricelist' }">Services</b-nav-item>
+                    <b-nav-item :to="{ name: 'reservation' }">Reservation</b-nav-item>
                     <b-nav-item :to="{ name: 'about' }">About us</b-nav-item>
-                    <b-nav-item :to="{ name: 'services' }">Services</b-nav-item>
-                    <b-nav-item :to="{ name: 'pricelist' }">Pricelist</b-nav-item>
-                    <b-nav-item :to="{ name: 'about' }">About us</b-nav-item>
-                    <b-button   :to="{ name: 'reservation' }">Reservation</b-button>
                 </b-navbar-nav>
                 <!-- Right aligned nav items -->
                 <b-navbar-nav class="ml-auto">
