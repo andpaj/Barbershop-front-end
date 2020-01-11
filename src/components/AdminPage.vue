@@ -134,8 +134,16 @@ export default {
       },
 
       deleteReservation() {
-        console.log(this.selected)
-      },
+        this.axios.delete('/reservation/delete', {
+          data: {
+            id: this.selected[0].id
+          }
+        })
+                .then((response) => {console.log(response)})
+                .catch((e) => {
+                  console.error(e)
+                })
+      }
 
     },
     mounted() {
