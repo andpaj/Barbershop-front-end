@@ -203,7 +203,7 @@
 
     sendService () {
       this.axios.post('/services/create', {
-        name: this.form.name,
+        serviceName: this.form.name,
         price: this.form.price,
         duration: this.form.duration
       })
@@ -211,16 +211,13 @@
       .catch((e) => {
         console.error(e)
       })
-    },
-
-    
+    }
   },
 
   mounted() {
       this.loadServices()
       this.onResize()
-    }
-    
+  }    
 }
 
 
