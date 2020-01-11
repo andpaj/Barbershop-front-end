@@ -98,6 +98,7 @@
                                 <b-button  
                                   variant="primary" 
                                   @click="getValue()" 
+                                  class="submit-date-button"
                                 >
                                 Submit
                                 </b-button>
@@ -244,7 +245,8 @@
     },
     methods: {
       getValue () {
-          this.form.date  = this.date;
+          this.form.date = this.date.toString().slice(3,15);
+          console.log(this.form.date);
           this.isTimeListVisible = true;
           this.loadTimes();
       },
@@ -427,6 +429,10 @@
     .time-radio-list {
       height: unset;
       overflow: unset;
+    }
+
+    .submit-date-button {
+      z-index: unset !important;
     }
   }
 
