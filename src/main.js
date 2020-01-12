@@ -21,7 +21,7 @@ Vue.use(Vuelidate)
 Vue.use(BootstrapVue)
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
-axios.defaults.baseURL = 'http://localhost:9000/'
+axios.defaults.baseURL = 'http://40.112.69.208:9000/ap/'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
 new Vue({
