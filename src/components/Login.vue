@@ -51,10 +51,10 @@
                                 <div class="alert alert-danger" role="alert" v-if="message">{{message}}</div>
                             </div>
                         </b-form>
-                        <div class="link-container">
+                        <!-- <div class="link-container">
                             <h6>Don't have an account?</h6>
                             <b-link size="sm" :to="{ name: 'register' }">Register now!</b-link>
-                        </div>
+                        </div> -->
                     </b-card-body>
                 </b-col>
             </b-row>
