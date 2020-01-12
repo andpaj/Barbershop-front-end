@@ -1,25 +1,22 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div id="nav" >
       <the-navigation/>
     </div>
-    <div class="row justify-content-center main-container">
-      <div class="col-12">
-        <login-modal title="User Modal" text="Testing Bootstrap Modal" />
-        <router-view/>
-      </div>
-    </div>
+    <b-row class="row justify-content-center main-container">
+      <b-col cols="12">
+        <router-view :key="$route.fullPath"/>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
 <script>
 import TheNavigation from './components/TheNavigation'
-import LoginModal from "./components/LoginModal.vue";
 export default {
   name: 'App',
   components: {
     'the-navigation': TheNavigation,
-    'login-modal': LoginModal
   },
   computed: {
     currentUser() {
@@ -86,12 +83,41 @@ export default {
     height: 40vh;
   }
 
+  .bg-login-img-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .bg-login-img {
+    width: inherit;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(to bottom, rgba(45, 45, 49, 0.52), rgba(24, 23, 24, 0.73)),
+      url('./assets/background/bg-1.jpg');
+  }
+
   .bg-img {
     width: inherit;
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+  }
+
+  .bg-img-container {
+    width: 100%;
+    height: 40vh;
+  }
+
+  .bg-img {
+    width: inherit;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
   }
 
   .bg-header-container {
@@ -154,6 +180,20 @@ export default {
 
   .alert-container {
     margin-top: 10px; 
+  }
+
+  .login-page-container {
+    height: 100%;
+  }
+
+  .row {
+    margin-left: unset !important;
+    margin-right: unset !important;
+  }
+
+  .col-12, .col-6 {
+    padding-left: unset !important;
+    padding-right: unset !important;
   }
 
   @media only screen and (max-width: 700px) {

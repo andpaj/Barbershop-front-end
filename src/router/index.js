@@ -71,7 +71,7 @@ export const router = new Router({
     {
       path: '/registration',
       component: Register,
-      name: 'Register',
+      name: 'register',
       meta: {
         auth: true
       }

@@ -11,6 +11,7 @@ import Vuex from 'vuex';
 import Vuelidate from 'vuelidate'
 import store from './store'
 
+
 Vue.use(Vuex);
 
 // Use v-calendar & v-date-picker components
