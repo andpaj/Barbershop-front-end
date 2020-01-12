@@ -93,6 +93,11 @@ export default {
       padding-bottom: 80px;
     }
 
+  .bg-img {
+    background-image: linear-gradient(to bottom, rgba(45, 45, 49, 0.52), rgba(24, 23, 24, 0.73)),
+      url('../assets/background/bg-1.jpg');
+  }
+
   .about {
     padding-top: 40px;
     text-align: left;
