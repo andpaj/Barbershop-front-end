@@ -119,7 +119,8 @@ export default {
     methods: {
 
       loadReserv() {
-        this.axios.get('reservation/get').then((response) => {
+        let head = authHeader();
+        this.axios.get('reservation/get',{headers: head}).then((response) => {
           this.$data.registration_list = response.data;
         })
       },
