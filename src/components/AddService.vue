@@ -174,11 +174,19 @@
           id: id
         }
       })
-              .then((response) => {console.log(response)})
-              .catch((e) => {
-                console.error(e)
-              })
+      .then((response) => {
+        console.log(response)
+        this.deleteServiceFromList(id)
+      })
+      .catch((e) => {
+        console.error(e)
+      })
 
+    },
+
+    deleteServiceFromList(id) {
+      var i = this.services.map(item => item.id).indexOf(id)
+      this.services.splice(i, 1)
     },
 
     submit(evt) {

@@ -246,7 +246,6 @@
     methods: {
       getValue () {
           this.form.date = this.date.toString().slice(3,15);
-          console.log(this.form.date);
           this.isTimeListVisible = true;
           this.loadTimes();
       },
