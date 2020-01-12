@@ -1,4 +1,5 @@
 <template>
+    <div>
     <b-row class="justify-content-md-center login-page-container">
         <b-col cols="6" md="6" class="login-image-col">
             <div class="bg-login-img-container">
@@ -91,6 +92,18 @@
             </b-row>
         </b-col>
     </b-row>
+    <b-modal id="userModal"
+             ref="submit-modal"
+             centered
+             hide-footer
+             hide-header>
+        <b-card class="modal-card">
+            <b-card-title>User{{ user.username }} was succesfully created!</b-card-title>
+            <b-card-text class="small text-muted">You can now log in!</b-card-text>
+            <b-button class="mt-3" variant="outline-danger" block @click="hideModal">Close</b-button>
+        </b-card>
+    </b-modal>
+    </div>
 </template>
 
 
@@ -122,24 +135,49 @@
                 touchMap.set($v, setTimeout($v.$touch, 1000))
             },
 
+            onReset() {
+                // Reset our form values
+                this.user.firstname = ''
+                this.user.lastname = ''
+                this.user.username = ''
+                this.user.password = ''
+                this.user.email = ''
+                // Trick to reset/clear native browser form validation state
+                this.show = false
+                this.$nextTick(() => {
+                    this.show = true
+                })
+            },
+
+            showModal() {
+                this.$refs['submit-modal'].show()
+            },
+
+            hideModal() {
+                this.$refs['submit-modal'].hide()
+                this.onReset()
+            },
+
             onRegisterSubmit (evt) {
+
                 evt.preventDefault()
-                alert(JSON.stringify(this.user))
-                this.axios.post('/registration', {
-                    username: this.credentials.username,
-                    password: this.credentials.password,
-                    email: this.credentials.email,
-                    firstname: this.credentials.firstname,
-                    lastname: this.credentials.lastname,
+                this.axios.post('/auth/registration', {
+                    firstname: this.user.firstname,
+                    lastname: this.user.lastname,
+                    username: this.user.username,
+                    password: this.user.password,
+                    email: this.user.email,
+
                 })
                     .then((response) => {console.log(response)})
                     .catch((e) => {
                         console.error(e)
                     })
+                this.showModal()
             }
         },
         mounted() {
-            console.log('test')
+            console.log('')
         },
 
         validations: {
@@ -159,7 +197,7 @@
                 },
                 password: {
                     required,
-                    minLength: minLength(8),
+                    minLength: minLength(6),
                     maxLength: maxLength(72)
                 },
                 email: {

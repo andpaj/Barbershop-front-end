@@ -218,7 +218,6 @@
     },
 
     loadServices() {
-      console.log('test')
         this.axios.get('/services/findall').then((response) => {
           this.$data.services = response.data;
         })

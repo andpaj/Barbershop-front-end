@@ -10,11 +10,12 @@
             {{currentUser.id}}
         </p>
         <p>
-            <strong>Id:</strong>
+            <strong>Firstname:</strong>
+            <strong v-for="(rol,index) in currentUser.users" :key="index">{{rol}}</strong>
             {{currentUser.firstname}}
         </p>
         <p>
-            <strong>Id:</strong>
+            <strong>Lastname:</strong>
             {{currentUser.lastname}}
         </p>
         <p>

@@ -74,10 +74,11 @@
          },
          data() {
              return {
-                 user: new User('', ''),
+                 user: new User('', '', '', ''),
                  loading: false,
                  message: ''
              };
+
          },
          created() {
              if (this.loggedIn) {
@@ -86,7 +87,6 @@
          },
          methods: {
              handleLogin() {
-
 
                  if (this.user.username && this.user.password) {
                      this.$store.dispatch('auth/login', this.user).then(
