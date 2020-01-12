@@ -231,7 +231,10 @@
         price: this.form.price,
         duration: this.form.duration
       }, {headers: head})
-      .then((response) => {console.log(response)})
+      .then((response) => {
+        console.log(response)
+        this.loadServices()
+      })
       .catch((e) => {
         console.error(e)
       })
