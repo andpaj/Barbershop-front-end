@@ -386,7 +386,8 @@
   }
 
   .time-container {
-    height: 250px;
+    height: 150px;
+    overflow: scroll;
   }
 
   .time-list-group {
