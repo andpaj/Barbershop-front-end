@@ -16,12 +16,12 @@
                 <!-- Right aligned nav items -->
                 <b-navbar-nav class="ml-auto">
                     <b-navbar-nav>
-                        <b-nav-item :to="{ name: 'login' }" v-if="!isActive" v-b-modal.loginModal>Login</b-nav-item>
+                        <b-nav-item :to="{ name: 'login' }" v-if="!this.$store.state.auth.status.loggedIn" v-b-modal.loginModal>Login</b-nav-item>
                     </b-navbar-nav>
-                    <b-nav-item-dropdown right v-if="isActive">
+                    <b-nav-item-dropdown right v-if="this.$store.state.auth.status.loggedIn">
                         <!-- Using 'button-content' slot -->
                         <template v-slot:button-content>
-                            <em>User</em>
+                            <em>Admin mode</em>
                         </template>
                         
                         <b-dropdown-item :to="{ name: 'profile' }">Profile</b-dropdown-item>
@@ -36,11 +36,29 @@
 </template>
 
 <script>
-export default {
+// import User from '../models/user';
 
+export default {
+    name: 'logout',
     data () {
         return {
-            isActive: false
+            loading: false,
+            message: ''
+        }
+    },
+
+    methods: {
+        logout () {
+            
+                this.$store.dispatch('auth/logout').then(
+                    () => {
+                        this.$router.push('/');
+                    },
+                    error => {
+                        this.message = error.message;
+                    }
+                );
+            
         }
     }
 

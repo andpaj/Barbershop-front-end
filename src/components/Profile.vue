@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" v-if="this.$store.state.auth.status.loggedIn">
         <header class="jumbotron">
             <h3>
                 <strong>{{currentUser.username}}</strong> Profile
