@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import authHeader from "../services/auth-header";
+import UserService from "../services/user.service";
 
 export default {
     name: 'admin',
@@ -119,7 +119,7 @@ export default {
     methods: {
 
       loadReserv() {
-        let head = authHeader();
+        let head = UserService.getHeader();
         this.axios.get('reservation/get',{headers: head}).then((response) => {
           this.$data.registration_list = response.data;
         })
@@ -137,12 +137,10 @@ export default {
       },
 
       deleteReservation() {
-        let head = authHeader();
-        this.axios.delete('/reservation/delete', {
-          data: {
-            id: this.selected[0].id
-          }
-        }, {headers: head})
+        let head = UserService.getHeader();
+        this.axios.delete('/reservation/delete', {headers: head,
+          data: {id: this.selected[0].id}
+        })
                 .then((response) => {
                   console.log(response)
                   this.deleteReservationFromList(this.selected[0].id)})

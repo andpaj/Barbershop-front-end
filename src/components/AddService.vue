@@ -170,11 +170,11 @@
 
     deleteService(id) {
       let head = UserService.getHeader();
-      this.axios.delete('/services/delete', {
-        data: {
-          id: id
-        }
-      }, {headers: head})
+      console.log(id)
+      this.axios.delete('/services/delete',
+              {headers: head,
+              data: {id: id}
+      },)
       .then((response) => {
         console.log(response)
         this.deleteServiceFromList(id)
