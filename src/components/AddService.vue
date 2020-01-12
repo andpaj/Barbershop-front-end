@@ -127,6 +127,7 @@
 </template>
 
 <script>
+  import UserService from '../services/user.service';
 
   export default {
   name: 'add-service',
@@ -215,11 +216,13 @@
     },
 
     sendService () {
+      let head = UserService.getHeader();
+      console.log(head)
       this.axios.post('/services/create', {
         serviceName: this.form.name,
         price: this.form.price,
         duration: this.form.duration
-      })
+      }, {headers: head})
       .then((response) => {console.log(response)})
       .catch((e) => {
         console.error(e)
@@ -228,8 +231,8 @@
   },
 
   mounted() {
-      this.loadServices()
-      this.onResize()
+      this.loadServices();
+      this.onResize();
   }    
 }
 

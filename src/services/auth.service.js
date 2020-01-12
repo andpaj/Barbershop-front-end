@@ -5,7 +5,7 @@ import axios from 'axios';
 class AuthService {
     login(user) {
         return axios
-            .post('/users/login', {
+            .post('/auth/login', {
                 username: user.username,
                 password: user.password
             })
@@ -24,7 +24,7 @@ class AuthService {
     }
 
     register(user) {
-        return axios.post('/users/registration', {
+        return axios.post('/auth/registration', {
             username: user.username,
             email: user.email,
             password: user.password
