@@ -27,7 +27,7 @@
                         <b-dropdown-item :to="{ name: 'profile' }">Profile</b-dropdown-item>
                         <b-dropdown-item :to="{ name: 'admin' }">All reservations</b-dropdown-item>
                         <b-dropdown-item :to="{ name: 'add-service' }">Add service</b-dropdown-item>
-                        <b-dropdown-item href="#" @click="logout">Sign Out</b-dropdown-item>
+                        <b-dropdown-item href="#" @click="logout">Logout</b-dropdown-item>
                     </b-nav-item-dropdown>
                 </b-navbar-nav>
             </b-collapse>
