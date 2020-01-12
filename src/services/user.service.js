@@ -1,19 +1,29 @@
 import axios from 'axios';
 import authHeader from './auth-header';
 
-const API_URL = 'http://localhost:8080/';
+
 
 class UserService {
+
+
+    getHeader() {
+        let head = authHeader();
+        let header = {
+            'Content-Type': 'application/json',
+            'Authorization': head
+        };
+        return header;
+    }
     getPublicContent() {
-        return axios.get(API_URL + 'all');
+        return axios.get( 'all');
     }
 
     getUserBoard() {
-        return axios.get(API_URL + 'services', { headers: authHeader() });
+        return axios.get('/services/findall', { headers: authHeader() });
     }
 
-    getAdminBoard() {
-        return axios.get(API_URL + 'admin/add-service', { headers: authHeader() });
+    getAdminAddServ() {
+        return axios.get('/services/create', { headers: authHeader() });
     }
 }
 
