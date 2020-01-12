@@ -75,6 +75,8 @@
 </template>
 
 <script>
+import authHeader from "../services/auth-header";
+
 export default {
     name: 'admin',
     data () {
@@ -134,11 +136,12 @@ export default {
       },
 
       deleteReservation() {
+        let head = authHeader();
         this.axios.delete('/reservation/delete', {
           data: {
             id: this.selected[0].id
           }
-        })
+        }, {headers: head})
                 .then((response) => {
                   console.log(response)
                   this.deleteReservationFromList(this.selected[0].id)})

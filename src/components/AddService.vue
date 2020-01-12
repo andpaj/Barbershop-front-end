@@ -169,11 +169,12 @@
     },
 
     deleteService(id) {
+      let head = UserService.getHeader();
       this.axios.delete('/services/delete', {
         data: {
           id: id
         }
-      })
+      }, {headers: head})
       .then((response) => {
         console.log(response)
         this.deleteServiceFromList(id)
@@ -225,7 +226,6 @@
 
     sendService () {
       let head = UserService.getHeader();
-      console.log(head)
       this.axios.post('/services/create', {
         serviceName: this.form.name,
         price: this.form.price,
