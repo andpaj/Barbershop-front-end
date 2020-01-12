@@ -107,7 +107,7 @@
                         </div>
                         <div class="time-container">
                           <b-list-group class="mt-3 time-list-group" v-if="isTimeListVisible">
-                            <b-form-group label="Choose time:">
+                            <b-form-group label="Choose time:" class="radio-form-group">
                               <b-form-radio-group class="time-radio-list" stacked name="radio-size" size="lg">
                                 <b-form-radio v-for="(time, index) in availableTime" :key="index" :value="time.time"
                                   v-model="form.time" :options="availableTime">
@@ -336,6 +336,10 @@
     box-shadow: 0px 0px 8px 2px #bdc0c8;
   }
 
+  .radio-form-group {
+    padding: 10px !important;
+  }
+
   /* Custom style for bootstrap default tabs */
 
   .tabs-class {
@@ -385,18 +389,8 @@
     overflow: scroll;
   }
 
-  .time-container {
-    height: 150px;
-    overflow: scroll;
-  }
-
   .time-list-group {
     height: inherit;
-  }
-
-  .time-radio-list {
-    height: 200px;
-    overflow: scroll;
   }
 
   .modal-card {
