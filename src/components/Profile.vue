@@ -6,12 +6,16 @@
             </h3>
         </header>
         <p>
-            <strong>Token:</strong>
-            {{currentUser.accessToken.substring(0, 20)}} ... {{currentUser.accessToken.substr(currentUser.accessToken.length - 20)}}
+            <strong>Id:</strong>
+            {{currentUser.id}}
         </p>
         <p>
             <strong>Id:</strong>
-            {{currentUser.id}}
+            {{currentUser.firstname}}
+        </p>
+        <p>
+            <strong>Id:</strong>
+            {{currentUser.lastname}}
         </p>
         <p>
             <strong>Email:</strong>
